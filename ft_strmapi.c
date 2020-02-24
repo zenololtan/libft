@@ -6,7 +6,7 @@
 /*   By: ztan <ztan@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/11/05 16:02:59 by ztan           #+#    #+#                */
-/*   Updated: 2019/11/26 17:42:14 by ztan          ########   odam.nl         */
+/*   Updated: 2019/12/04 10:03:14 by ztan          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	if (!s || !f)
 		return (NULL);
 	new = malloc(sizeof(char) * (ft_strlen(s) + 1));
-	if (new == NULL)
+	if (!new)
 		return (NULL);
 	i = 0;
 	while (s[i])

@@ -6,7 +6,7 @@
 /*   By: ztan <marvin@codam.nl>                       +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/10/28 13:50:56 by ztan           #+#    #+#                */
-/*   Updated: 2019/11/24 18:33:42 by ztan          ########   odam.nl         */
+/*   Updated: 2019/12/04 17:41:53 by ztan          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ft_putstr_fd(char *str, int fd)
 {
-	if (str == NULL)
+	if (!str)
 		return ;
 	write(fd, str, ft_strlen(str));
 }

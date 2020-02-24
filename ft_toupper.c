@@ -6,16 +6,13 @@
 /*   By: ztan <marvin@codam.nl>                       +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/10/30 14:54:30 by ztan           #+#    #+#                */
-/*   Updated: 2019/11/14 18:56:46 by ztan          ########   odam.nl         */
+/*   Updated: 2019/12/09 09:54:59 by ztan          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 int	ft_toupper(int c)
 {
-	int val;
-
-	val = c;
 	if (c >= 'a' && c <= 'z')
-		val -= ('a' - 'A');
-	return (val);
+		c -= 32;
+	return (c);
 }

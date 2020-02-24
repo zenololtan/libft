@@ -6,12 +6,13 @@
 /*   By: ztan <ztan@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/11/15 19:51:04 by ztan           #+#    #+#                */
-/*   Updated: 2019/11/27 16:00:18 by ztan          ########   odam.nl         */
+/*   Updated: 2019/12/05 13:27:58 by ztan          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
+
 # include <stdlib.h>
 # include <unistd.h>
 
@@ -42,7 +43,7 @@ size_t				ft_strlen(const char *s);
 int					ft_strncmp(const char *s1, const char *s2, size_t n);
 char				*ft_substr(char const *s, unsigned int start, size_t len);
 char				*ft_strnstr(const char *haystack, \
-								const char *needle, size_t len);
+								const char *needle, size_t l);
 char				*ft_strrchr(const char *s, int c);
 int					ft_tolower(int c);
 int					ft_toupper(int c);

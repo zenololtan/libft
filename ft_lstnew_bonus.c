@@ -6,7 +6,7 @@
 /*   By: ztan <ztan@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/11/06 17:15:59 by ztan           #+#    #+#                */
-/*   Updated: 2019/11/26 17:37:53 by ztan          ########   odam.nl         */
+/*   Updated: 2019/12/04 17:45:05 by ztan          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ t_list	*ft_lstnew(void *content)
 	t_list *new_node;
 
 	new_node = (t_list *)malloc(sizeof(t_list));
-	if (new_node == NULL)
+	if (!new_node)
 		return (NULL);
 	new_node->content = content;
 	new_node->next = NULL;

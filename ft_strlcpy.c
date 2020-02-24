@@ -6,7 +6,7 @@
 /*   By: ztan <marvin@codam.nl>                       +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/10/29 11:17:31 by ztan           #+#    #+#                */
-/*   Updated: 2019/11/24 19:17:16 by ztan          ########   odam.nl         */
+/*   Updated: 2019/12/04 10:02:22 by ztan          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 	size_t slen;
 	size_t i;
 
-	if (src == NULL || dst == NULL)
+	if (!src || !dst)
 		return (0);
 	slen = ft_strlen(src);
 	if (dstsize == 0)

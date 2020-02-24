@@ -6,7 +6,7 @@
 /*   By: ztan <marvin@codam.nl>                       +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/11/03 19:23:00 by ztan           #+#    #+#                */
-/*   Updated: 2019/11/26 17:39:54 by ztan          ########   odam.nl         */
+/*   Updated: 2019/12/04 17:43:19 by ztan          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,7 @@ void	ft_putnbr_fd(int n, int fd)
 
 	int_min = -2147483648;
 	if (n == int_min)
-	{
-		ft_putchar_fd('-', fd);
-		ft_putchar_fd('2', fd);
-		ft_putnbr_fd(147483648, fd);
-	}
+		ft_putstr_fd("-2147483648", fd);
 	else if (n < 0)
 	{
 		ft_putchar_fd('-', fd);

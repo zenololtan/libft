@@ -6,7 +6,7 @@
 /*   By: ztan <marvin@codam.nl>                       +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/10/30 21:02:07 by ztan           #+#    #+#                */
-/*   Updated: 2019/11/11 13:13:28 by ztan          ########   odam.nl         */
+/*   Updated: 2019/12/04 10:05:28 by ztan          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ char	*ft_strdup(const char *s1)
 
 	i = 0;
 	dup = malloc(ft_strlen(s1) + 1);
-	if (dup == NULL)
+	if (!dup)
 		return (NULL);
 	while (s1[i] != '\0')
 	{

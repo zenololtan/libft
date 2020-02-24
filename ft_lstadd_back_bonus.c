@@ -6,7 +6,7 @@
 /*   By: ztan <ztan@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/11/07 11:38:57 by ztan           #+#    #+#                */
-/*   Updated: 2019/11/27 15:43:58 by ztan          ########   odam.nl         */
+/*   Updated: 2019/12/04 17:45:41 by ztan          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	ft_lstadd_back(t_list **alst, t_list *new)
 	if (!alst)
 		return ;
 	temp = *alst;
-	if (*alst == NULL)
+	if (!*alst)
 		*alst = new;
 	else
 	{

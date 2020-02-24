@@ -6,7 +6,7 @@
 /*   By: ztan <ztan@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/11/04 13:08:40 by ztan           #+#    #+#                */
-/*   Updated: 2019/11/24 19:14:04 by ztan          ########   odam.nl         */
+/*   Updated: 2019/12/04 17:46:04 by ztan          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ char		*ft_itoa(int n)
 		temp = temp / 10;
 	}
 	ret = malloc(sizeof(char) * (count + 1));
-	if (ret == NULL)
+	if (!ret)
 		return (NULL);
 	return (put_num(n, count, ret));
 }

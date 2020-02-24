@@ -6,7 +6,7 @@
 /*   By: ztan <marvin@codam.nl>                       +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/10/29 15:40:39 by ztan           #+#    #+#                */
-/*   Updated: 2019/11/11 15:05:32 by ztan          ########   odam.nl         */
+/*   Updated: 2019/12/04 17:20:58 by ztan          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,6 @@ size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 		ft_memcpy(dst + dlen, src, slen + 1);
 	else
 		ft_memcpy(dst + dlen, src, dstsize - dlen - 1);
-	dst[dstsize - 1] = 0;
+	dst[dstsize - 1] = '\0';
 	return (dlen + slen);
 }

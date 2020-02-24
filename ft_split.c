@@ -6,7 +6,7 @@
 /*   By: ztan <ztan@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/11/05 21:02:21 by ztan           #+#    #+#                */
-/*   Updated: 2019/11/27 20:50:46 by ztan          ########   odam.nl         */
+/*   Updated: 2019/12/06 15:09:40 by ztan          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 static int	free_words(char **ret, int i)
 {
-	while (ret[i])
+	while (i > 0)
 	{
-		free(ret[i]);
 		i--;
+		free(ret[i]);
 	}
 	free(ret);
 	return (1);
@@ -77,11 +77,11 @@ char		**ft_split(char const *s, char c)
 	char	**ret;
 	int		strnum;
 
-	if (s == NULL)
+	if (!s)
 		return (NULL);
 	strnum = word_num(s, c);
 	ret = (char **)malloc(sizeof(char *) * (strnum + 1));
-	if (ret == NULL)
+	if (!ret)
 		return (NULL);
 	if (make_words(s, c, ret, strnum) == 1)
 		return (NULL);

@@ -6,7 +6,7 @@
 /*   By: ztan <ztan@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/11/07 15:40:50 by ztan           #+#    #+#                */
-/*   Updated: 2019/11/27 17:28:33 by ztan          ########   odam.nl         */
+/*   Updated: 2019/12/09 09:43:09 by ztan          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ t_list			*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 	t_list	*temp;
 	t_list	*data;
 
-	if (lst == NULL)
+	if (!lst)
 		return (NULL);
 	data = f(lst->content);
 	new = ft_lstnew(data);
@@ -36,7 +36,7 @@ t_list			*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 	{
 		data = f(lst->content);
 		temp = ft_lstnew(data);
-		if (temp == NULL)
+		if (!temp)
 			return (free_list(new, data, del));
 		ft_lstadd_back(&new, temp);
 		lst = lst->next;

@@ -6,14 +6,13 @@
 #    By: ztan <ztan@student.codam.nl>                 +#+                      #
 #                                                    +#+                       #
 #    Created: 2019/11/06 18:10:05 by ztan           #+#    #+#                 #
-#    Updated: 2019/11/27 16:19:29 by ztan          ########   odam.nl          #
+#    Updated: 2019/12/05 14:47:12 by ztan          ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libft.a
 
 FLAGS = -Wall -Wextra -Werror
-
 FUNC = ft_atoi \
 	ft_bzero \
 	ft_calloc \
