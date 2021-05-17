@@ -5,8 +5,8 @@
 /*                                                     +:+                    */
 /*   By: ztan <ztan@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2019/11/15 19:51:04 by ztan           #+#    #+#                */
-/*   Updated: 2019/12/05 13:27:58 by ztan          ########   odam.nl         */
+/*   Created: 2019/11/15 19:51:04 by ztan          #+#    #+#                 */
+/*   Updated: 2021/05/17 09:24:40 by ztan          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,18 @@
 # include <stdlib.h>
 # include <unistd.h>
 
-typedef struct		s_list
+typedef struct s_list
 {
 	void			*content;
 	struct s_list	*next;
 }					t_list;
+
+typedef struct s_dlist
+{
+	void			*content;
+	struct s_dlist	*prev;
+	struct s_dlist	*next;
+}					t_dlist;
 
 int					ft_atoi(const char *str);
 void				ft_bzero(void *s, size_t n);
@@ -40,6 +47,7 @@ char				*ft_strchr(const char *s, int c);
 size_t				ft_strlcat(char *dst, const char *src, size_t dstsize);
 size_t				ft_strlcpy(char *dst, const char *src, size_t dstsize);
 size_t				ft_strlen(const char *s);
+int					ft_strcmp(const char *str1, const char *str2);
 int					ft_strncmp(const char *s1, const char *s2, size_t n);
 char				*ft_substr(char const *s, unsigned int start, size_t len);
 char				*ft_strnstr(const char *haystack, \
@@ -48,6 +56,7 @@ char				*ft_strrchr(const char *s, int c);
 int					ft_tolower(int c);
 int					ft_toupper(int c);
 char				*ft_strjoin(char const *s1, char const *s2);
+char				*ft_strjoin_free(char *s1, char *s2);
 char				*ft_strtrim(char const *s1, char const *set);
 void				ft_putchar_fd(char c, int fd);
 void				ft_putstr_fd(char *str, int fd);
@@ -67,5 +76,12 @@ void				ft_lstiter(t_list *lst, void (*f)(void *));
 t_list				*ft_lstmap(t_list *lst, void *(*f)(void *), \
 								void (*del)(void *));
 t_list				*ft_lstlast(t_list *lst);
-
+t_dlist				*ft_dlstnew(void *content);
+void				ft_dlstclear(t_dlist **lst, void (*del)(void *));
+void				ft_dlstdelone(t_dlist **lst, \
+								int position, void (*del)(void *));
+void				ft_dlstadd_front(t_dlist **alst, t_dlist *new);
+void				ft_dlstadd_back(t_dlist **alst, t_dlist *new);
+t_dlist				*ft_dlstlast(t_dlist *lst);
+int					ft_dlstsize(t_dlist *lst);
 #endif

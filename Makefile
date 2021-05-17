@@ -5,50 +5,51 @@
 #                                                      +:+                     #
 #    By: ztan <ztan@student.codam.nl>                 +#+                      #
 #                                                    +#+                       #
-#    Created: 2019/11/06 18:10:05 by ztan           #+#    #+#                 #
-#    Updated: 2019/12/05 14:47:12 by ztan          ########   odam.nl          #
+#    Created: 2019/11/06 18:10:05 by ztan          #+#    #+#                  #
+#    Updated: 2021/05/17 09:27:33 by ztan          ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libft.a
 
 FLAGS = -Wall -Wextra -Werror
-FUNC = ft_atoi \
-	ft_bzero \
-	ft_calloc \
-	ft_isalnum \
-	ft_isalpha \
-	ft_isascii \
-	ft_isdigit \
-	ft_isprint \
-	ft_memccpy \
-	ft_memchr \
-	ft_memcmp \
-	ft_memcpy \
-	ft_memmove \
-	ft_memset \
-	ft_strchr \
-	ft_strdup \
-	ft_strlcat \
-	ft_strlcpy \
-	ft_strlen \
-	ft_strncmp \
-	ft_strnstr \
-	ft_strrchr \
-	ft_tolower \
-	ft_toupper \
-	ft_substr \
-	ft_strjoin \
-	ft_strtrim \
-	ft_putchar_fd \
-	ft_putstr_fd \
-	ft_putnbr_fd \
-	ft_putendl_fd \
-	ft_itoa \
-	ft_strmapi \
-	ft_split
+SRC = ft_atoi.c \
+	ft_bzero.c \
+	ft_calloc.c \
+	ft_isalnum.c \
+	ft_isalpha.c \
+	ft_isascii.c \
+	ft_isdigit.c \
+	ft_isprint.c \
+	ft_memccpy.c \
+	ft_memchr.c \
+	ft_memcmp.c \
+	ft_memcpy.c \
+	ft_memmove.c \
+	ft_memset.c \
+	ft_strchr.c \
+	ft_strdup.c \
+	ft_strlcat.c \
+	ft_strlcpy.c \
+	ft_strlen.c \
+	ft_strcmp.c \
+	ft_strncmp.c \
+	ft_strnstr.c \
+	ft_strrchr.c \
+	ft_tolower.c \
+	ft_toupper.c \
+	ft_substr.c \
+	ft_strjoin.c \
+	ft_strtrim.c \
+	ft_putchar_fd.c \
+	ft_putstr_fd.c \
+	ft_putnbr_fd.c \
+	ft_putendl_fd.c \
+	ft_itoa.c \
+	ft_strmapi.c \
+	ft_split.c
 
-SRC2 = ft_lstnew_bonus.c \
+BONUS = ft_lstnew_bonus.c \
 	ft_lstadd_front_bonus.c \
 	ft_lstsize_bonus.c \
 	ft_lstlast_bonus.c \
@@ -58,28 +59,39 @@ SRC2 = ft_lstnew_bonus.c \
 	ft_lstiter_bonus.c \
 	ft_lstmap_bonus.c
 
-SRC = $(FUNC:=.c)
+BONUS2 = ft_dlist_addback_bonus.c \
+	ft_dlist_addfront_bonus.c \
+	ft_dlist_clear_bonus.c \
+	ft_dlist_delone_bonus.c \
+	ft_dlist_last_bonus.c \
+	ft_dlist_new_bonus.c \
+	ft_dlist_size_bonus.c \
 
-OBJ = $(FUNC:=.o)
+OBJ = $(SRC:%.c=%.o)
 
-OBJ2 = $(SRC2:.c=.o)
+OBJ2 = $(BONUS:%.c=%.o)
+
+OBJ3 = $(BONUS2:%.c=%.o)
+
+INCL = libft.h
+
+.PHONY: all clean fclean re
 
 all: $(NAME)
 
-$(NAME):
-	gcc -c -g $(FLAGS) $(SRC)
-	ar rcs $(NAME) $(OBJ)
-	ranlib $(NAME)
+$(NAME): $(OBJ)
+	ar rcs $(NAME) $?
 
-bonus:
-	gcc -c -g $(FLAGS) $(SRC) $(SRC2)
-	ar rc $(NAME) $(OBJ) $(OBJ2)
-	ranlib $(NAME)
+%.o: %.c
+	gcc $(FLAGS) -c $<
+
+bonus: $(NAME) $(OBJ2) $(OBJ3)
+	ar rcs $(NAME) $?
 
 clean:
-	/bin/rm -rf $(OBJ) $(OBJ2)
+	/bin/rm -f $(OBJ) $(OBJ2) $(OBJ3)
 
 fclean: clean
-	/bin/rm -rf $(NAME)
+	/bin/rm -f $(NAME)
 
 re: fclean all
